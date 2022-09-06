@@ -56,25 +56,6 @@ const addContact = async (name, email, phone) => {
   } catch (error) {
     console.log(error);
   }
-  // try {
-  //   const contacts = await promises.readFile(contactsPath, "utf-8");
-  //   const parsedContacts = JSON.parse(contacts);
-  //   const newContact = {
-  //     id: String(parsedContacts.length + 2),
-  //     name,
-  //     email,
-  //     phone,
-  //   };
-  //   const updatedContacts = [...parsedContacts, newContact];
-  //   await promises.writeFile(
-  //     contactsPath,
-  //     JSON.stringify(updatedContacts),
-  //     "utf-8"
-  //   );
-  //   console.table(updatedContacts);
-  // } catch (error) {
-  //   console.log(error);
-  // }
 }
 
 module.exports = {
