@@ -30,19 +30,32 @@ const removeContact = async (contactId) => {
     const filteredData = parseData.filter(({ id }) => id !== contactId);
     const stringifyData = JSON.stringify(filteredData);
 
-    await fs.writeFile(
-      contactsPath,
-      stringifyData,
-      "utf-8"
-    );
-
-    console.table(filteredData);
+    await fs.writeFile(contactsPath, stringifyData, "utf8");
+    console.table(stringifyData);
   } catch (error) {
     console.log(error);
   }
 }
 
 const addContact = async (name, email, phone) => {
+  try {
+    const data = await fs.readFile(contactsPath, "utf8");
+    const parseData = JSON.parse(data);
+    const nextId = String(parseData.length + 1);
+    
+    const newContact = {
+      id: nextId,
+      name,
+      email,
+      phone,
+    }
+    const updatedContacts = [...parseData, newContact];
+    const stringifyData = JSON.stringify(updatedContacts);
+    await fs.writeFile(contactsPath, stringifyData, "utf8");
+    console.table(updatedContacts);
+  } catch (error) {
+    console.log(error);
+  }
   // try {
   //   const contacts = await promises.readFile(contactsPath, "utf-8");
   //   const parsedContacts = JSON.parse(contacts);
