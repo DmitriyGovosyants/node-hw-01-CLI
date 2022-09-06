@@ -31,7 +31,7 @@ const removeContact = async (contactId) => {
     const stringifyData = JSON.stringify(filteredData);
 
     await fs.writeFile(contactsPath, stringifyData, "utf8");
-    console.table(stringifyData);
+    console.table(filteredData);
   } catch (error) {
     console.log(error);
   }

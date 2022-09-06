@@ -19,5 +19,8 @@
   "homepage": "https://github.com/DmitriyGovosyants/node-hw-01-CLI#readme",
   "devDependencies": {
     "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "commander": "^9.4.0"
   }
 }
