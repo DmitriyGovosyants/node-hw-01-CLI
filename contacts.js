@@ -3,7 +3,7 @@ const path = require('path');
 
 const contactsPath = path.resolve("./db/contacts.json");
 
-const listContacts = async () => {
+const getListContacts = async () => {
   try {
     const data = await fs.readFile(contactsPath, "utf8");
     console.table(JSON.parse(data));
@@ -59,7 +59,7 @@ const addContact = async (name, email, phone) => {
 }
 
 module.exports = {
-  listContacts,
+  getListContacts,
   getContactById,
   removeContact,
   addContact,
